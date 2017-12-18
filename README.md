@@ -22,7 +22,7 @@ Nodejs Validator
 ```
 
 ### Multi rule
-```
+```js
   const AgodaEmail = "AgodaEmail"
   const Email = "Email"
   const isAgodaEmailValidator = (data) => {
