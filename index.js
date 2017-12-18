@@ -1,37 +1,52 @@
 'use strict';
 
-class Validi{
+class Va$${
     constructor(rule){
         if(!!rule){
             var k = Object.keys(rule)
             this._rule = {}
-            k.forEach(element => {
-                if(typeof(rule[element]) === 'function'){
-                    this._rule[element] = rule[element]
+            k.forEach(elem => {
+                if(typeof(rule[elem]) === 'function'){
+                    this._rule[elem] = rule[elem]
                     
                 }
             });
         }
     }
 
-    Is(value){
-        return new RuleWithData(value, this._rule)
-    }
-
-    Are(values){
-        return new RuleWithData(values, this._rule)
+    _(value){
+        return new $$$(value, this._rule)
     }
 }
 
-class RuleWithData{
+class $$${
     constructor(data, rule){
         this._data = data
         this._rule = rule
     }
 
     _(rulename){
-        return this._rule[rulename](this._data)
+        if (!!!rulename)
+            return undefined
+
+        if(this._data.constructor != Array){
+            this._data = [this._data]
+        }
+        
+        if(rulename.constructor != Array){
+            rulename = [rulename]
+        }
+        
+        return this._data
+            .map(x => this.__(rulename, x))
+            .reduce((a, c) => a && c, true)
+    }
+
+    __(rulename, data){
+        return rulename
+            .map(x => this._rule[x](data))
+            .reduce((a, c) => a && c, true)
     }
 }
 
-module.exports = Validi
+module.exports = Va$$
