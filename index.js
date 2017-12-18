@@ -1,6 +1,6 @@
 'use strict';
 
-class Va$${
+class VaJ${
     constructor(rule){
         if(!!rule){
             var k = Object.keys(rule)
@@ -49,4 +49,4 @@ class $$${
     }
 }
 
-module.exports = Va$$
+module.exports = VaJ$
