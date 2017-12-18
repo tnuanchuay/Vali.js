@@ -1,8 +1,8 @@
-var VaJ$ = require('../index')
+var ValiJ$ = require('../index')
 
 describe('instanciate test', () => {
-    it('should create new instace VaJ$', () => {
-        var $$ = new VaJ$()
+    it('should create new instace ValiJ$', () => {
+        var $$ = new ValiJ$()
         expect($$).toBeDefined()
     })
 })
@@ -14,7 +14,7 @@ describe('verify', ()=> {
             return /[\w]*@agoda.com/g.test(data)
         }
 
-        var $$ = new VaJ$({
+        var $$ = new ValiJ$({
             AgodaEmail:isAgodaEmailValidator
         })
 
@@ -27,7 +27,7 @@ describe('verify', ()=> {
             return /[\w]*@agoda.com/g.test(data)
         }
 
-        var $$ = new VaJ$({
+        var $$ = new ValiJ$({
             AgodaEmail:isAgodaEmailValidator
         })
 
@@ -40,7 +40,7 @@ describe('verify', ()=> {
             return /[\w]*@agoda.com/g.test(data)
         }
 
-        var $$ = new VaJ$({
+        var $$ = new ValiJ$({
             AgodaEmail:isAgodaEmailValidator
         })
 
@@ -53,7 +53,7 @@ describe('verify', ()=> {
             return /[\w]*@agoda.com/g.test(data)
         }
 
-        var $$ = new VaJ$({
+        var $$ = new ValiJ$({
             AgodaEmail:isAgodaEmailValidator
         })
 
@@ -71,7 +71,7 @@ describe('verify', ()=> {
             return /[\w]*@[\w]*.com/g.test(data)
         }
 
-        var $$ = new VaJ$({
+        var $$ = new ValiJ$({
             AgodaEmail:isAgodaEmailValidator,
             Email:EmailValidator
         })
@@ -90,7 +90,7 @@ describe('verify', ()=> {
             return /[\w]*@[\w]*.com/g.test(data)
         }
 
-        var $$ = new VaJ$({
+        var $$ = new ValiJ$({
             AgodaEmail:isAgodaEmailValidator,
             Email:EmailValidator
         })
@@ -109,7 +109,7 @@ describe('verify', ()=> {
             return /[\w]*@[\w]*.com/g.test(data)
         }
 
-        var $$ = new VaJ$({
+        var $$ = new ValiJ$({
             AgodaEmail:isAgodaEmailValidator,
             Email:EmailValidator
         })
@@ -128,7 +128,7 @@ describe('verify', ()=> {
             return /[\w]*@[\w]*.com/g.test(data)
         }
 
-        var $$ = new VaJ$({
+        var $$ = new ValiJ$({
             AgodaEmail:isAgodaEmailValidator,
             Email:EmailValidator
         })
@@ -138,20 +138,20 @@ describe('verify', ()=> {
 })
 
 describe('create instance with rule', () => {
-    it('should be create VaJ$ with rule', () => {
+    it('should be create ValiJ$ with rule', () => {
         const AgodaEmail = "AgodaEmail"
         const isAgodaEmailValidator = (data) => {
             return /[\w]*@agoda.com/g.test(data)
         }
 
-        var $$ = new VaJ$({
+        var $$ = new ValiJ$({
             AgodaEmail:isAgodaEmailValidator
         })
 
         expect($$._rule[AgodaEmail]).toBe(isAgodaEmailValidator)
     })
 
-    it('should be able to create VaJ$ with more than 1 rules', () => {
+    it('should be able to create ValiJ$ with more than 1 rules', () => {
         const AgodaEmail = "AgodaEmail"
         const IsDecimal = "IsDecimal"
 
@@ -163,7 +163,7 @@ describe('create instance with rule', () => {
             return typeof(data) == 'number'
         }
 
-        var $$ = new VaJ$({
+        var $$ = new ValiJ$({
             AgodaEmail:isAgodaEmailValidator,
             IsDecimal:isNumber
         })
@@ -172,13 +172,13 @@ describe('create instance with rule', () => {
         expect($$._rule[IsDecimal]).toBe(isNumber)
     })
 
-    it('should not be able to create VaJ$ with non-function as validator', () => {
+    it('should not be able to create ValiJ$ with non-function as validator', () => {
         const AgodaEmail = "isEmail"
         const isAgodaEmailValidator = (data) => {
             return /[\w]*@agoda.com/g.test(data)
         }
 
-        var $$ = new VaJ$({
+        var $$ = new ValiJ$({
             AgodaEmail:isAgodaEmailValidator
         })
 
