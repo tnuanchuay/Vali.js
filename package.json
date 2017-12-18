@@ -1,0 +1,16 @@
+{
+  "name": "validi",
+  "version": "1.0.0",
+  "description": "nodejs validator",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "jest": "^21.2.1"
+  }
+}
